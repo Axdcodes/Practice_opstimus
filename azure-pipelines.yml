@@ -13,11 +13,10 @@ stages:
           vmImage: 'ubuntu-latest'
         steps:
            - task: CmdLine@2
-            displayName: 'Delay for 10 seconds'
-            inputs:
+             displayName: 'Delay for 10 seconds'
+             inputs:
               script: 'sleep 10'
-          - script: |
-              echo "Building the application..."
+    
 
 - stage: DEVRelease
   displayName: 'DEV Release CD'
