@@ -12,8 +12,11 @@ stages:
         pool:
           vmImage: 'ubuntu-latest'
         steps:
+           - task: CmdLine@2
+            displayName: 'Delay for 10 seconds'
+            inputs:
+              script: 'sleep 10'
           - script: |
-              # Add your build commands here
               echo "Building the application..."
 
 - stage: DEVRelease
