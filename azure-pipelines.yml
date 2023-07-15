@@ -16,13 +16,17 @@ stages:
              displayName: 'Delay for 10 seconds'
              inputs:
               script: 'sleep 10'
-           - task: CmdLine@2
-             displayName: 'Echo Variables'
-             inputs:
-               script: |
-               echo "DBusername: $(DBusername)"
-               echo "password: $(password)"
-              
+      - job: EchoVariables
+        displayName: 'Echo Variables'
+        pool:
+          vmImage: 'ubuntu-latest'
+        steps:
+          - task: CmdLine@2
+            displayName: 'Echo Variables'
+            inputs:
+              script: |
+              echo "DBusername: $(DBusername)"
+              echo "password: $(password)"
     
 - stage: DEVRelease
   displayName: 'DEV Release CD'
