@@ -64,6 +64,5 @@ stages:
             deploy:
               steps:
                 - script: |
-                    # Add your deployment commands here
                     echo "Deploying to PROD environment..."
 
