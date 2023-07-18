@@ -21,12 +21,25 @@ stages:
         pool:
           vmImage: 'ubuntu-latest'
         steps:
-          - task: CmdLine@2
-            displayName: 'Echo Variables'
-            inputs:
-              script:
-              echo "DBusername: $(DBusername)"
-              echo "password: $(password)"
+        - task: CmdLine@2
+          displayName: 'Set Environment Variables'
+          inputs:
+            script: |
+              echo "##vso[task.setvariable variable=DBusername;isOutput=true]$(DBusername)"
+              echo "##vso[task.setvariable variable=password;isOutput=true]$(password)"
+
+              - script: echo "DBusername: $(DBusername)"
+                displayName: 'Echo DBusername'
+
+              - script: echo "password: $(password)"
+                displayName: 'Echo password'
+
+              # Use the output variables in subsequent tasks
+              - script: echo "Using DBusername from the variable group: ${{ variables['Database_variables.DBusername'] }}"
+                displayName: 'Use DBusername'
+
+              - script: echo "Using password from the variable group: ${{ variables['Database_variables.password'] }}"
+                displayName: 'Use password'
     
 - stage: DEVRelease
   displayName: 'DEV Release CD'
