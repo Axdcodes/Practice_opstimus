@@ -1,4 +1,12 @@
 
+variables:
+- group: "Database_variables"
+- name: DBusername
+  value: $[Database_variables.DBusername]
+- name: password
+  value: $[Database_variables.password]
+
+
 trigger:
 - master
 
