@@ -25,22 +25,10 @@ stages:
           displayName: 'Set Environment Variables'
           inputs:
             script: |
-              echo "##vso[task.setvariable variable=DBusername;isOutput=true]$(DBusername)"
-              echo "##vso[task.setvariable variable=password;isOutput=true]$(password)"
-
               - script: echo "DBusername: $(DBusername)"
-                
-
               - script: echo "password: $(password)"
-                
 
-              # Use the output variables in subsequent tasks
-              - script: echo "Using DBusername from the variable group: ${{ variables['Database_variables.DBusername'] }}"
-                
 
-              - script: echo "Using password from the variable group: ${{ variables['Database_variables.password'] }}"
-                
-    
 - stage: DEVRelease
   displayName: 'DEV Release CD'
   dependsOn: Build
