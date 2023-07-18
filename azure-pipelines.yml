@@ -2,9 +2,9 @@
 variables:
 - group: "Database_variables"
 - name: DBusername
-  value: $[Database_variables.DBusername]
+  value: $[DBusername]
 - name: password
-  value: $[Database_variables.password]
+  value: $[password]
 
 
 trigger:
