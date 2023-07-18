@@ -20,13 +20,10 @@ stages:
         displayName: 'Echo Variables'
         pool:
           vmImage: 'ubuntu-latest'
-        steps:
-        - task: CmdLine@2
-          displayName: 'Set Environment Variables'
-          inputs:
+          steps:
             script: |
-              - script: echo "DBusername: $(DBusername)"
-              - script: echo "password: $(password)"
+              echo "DBusername: $(DBusername)"
+              echo "password: $(password)"
 
 
 - stage: DEVRelease
