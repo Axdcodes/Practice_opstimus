@@ -25,7 +25,7 @@ stages:
         pool:
           vmImage: 'ubuntu-latest'
           steps:
-            script: |
+            script:
               echo "DBusername: $(DBusername)"
               echo "password: $(password)"
 
