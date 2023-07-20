@@ -14,7 +14,7 @@ stages:
       - job: BuildJob
         displayName: 'Build Job'
         pool:
-          name: 'Ops-pipeline'
+          name: Ops-Pipeline
         steps:
            - task: CmdLine@2
              displayName: 'Delay for 10 seconds'
@@ -37,7 +37,7 @@ stages:
       - deployment: DEVDeployment
         displayName: 'DEV Deployment Job'
         pool:
-          name: 'Ops-pipeline'
+          name: Ops-Pipeline
         environment: 'DEV'
         strategy:
           runOnce:
@@ -59,7 +59,7 @@ stages:
         displayName: 'PREPROD Deployment Job'
         environment: 'PREPROD'
         pool:
-          name: 'Ops-pipeline'
+          name: Ops-Pipeline
         strategy:
           runOnce:
             deploy:
@@ -75,7 +75,7 @@ stages:
       - deployment: PRODDeployment
         displayName: 'PROD Deployment Job'
         pool:
-          name: 'Ops-pipeline'
+          name: Ops-Pipeline
         environment: 'PROD'
         strategy:
           runOnce:
