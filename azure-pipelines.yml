@@ -21,6 +21,13 @@ stages:
              inputs:
               script: 'sleep 10'
 
+           - task: CmdLine@2
+             displayName: 'Echo Variables'
+             steps:
+              - script:
+                    echo "DBusername:" $(DBusername)
+                    echo "password:" $(password)
+
 
 
 - stage: DEVRelease
@@ -29,8 +36,6 @@ stages:
   jobs:
       - deployment: DEVDeployment
         displayName: 'DEV Deployment Job'
-        pool:
-          vmImage: 'ubuntu-latest'
         environment: 'DEV'
         strategy:
           runOnce:
@@ -41,14 +46,14 @@ stages:
                     echo "DBusername:" $(DBusername)
                     echo "password:" $(password)
 
+
+
 - stage: PREPRODRelease
   displayName: 'PREPROD Release CD'
   dependsOn: DEVRelease
   jobs:
       - deployment: PREPRODDeployment
         displayName: 'PREPROD Deployment Job'
-        pool:
-          vmImage: 'ubuntu-latest'
         environment: 'PREPROD'
         strategy:
           runOnce:
@@ -63,8 +68,6 @@ stages:
   jobs:
       - deployment: PRODDeployment
         displayName: 'PROD Deployment Job'
-        pool:
-          vmImage: 'ubuntu-latest'
         environment: 'PROD'
         strategy:
           runOnce:
