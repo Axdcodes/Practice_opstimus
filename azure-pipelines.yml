@@ -14,7 +14,7 @@ stages:
       - job: BuildJob
         displayName: 'Build Job'
         pool:
-          vmImage: 'ubuntu-latest'
+          name: Ops-Pipeline
         steps:
            - task: CmdLine@2
              displayName: 'Delay for 10 seconds'
