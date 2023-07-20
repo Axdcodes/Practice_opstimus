@@ -14,7 +14,7 @@ stages:
       - job: BuildJob
         displayName: 'Build Job'
         pool:
-          vmImage: 'ubuntu-latest'
+          name: 'Ops-pipeline'
         steps:
            - task: CmdLine@2
              displayName: 'Delay for 10 seconds'
@@ -36,6 +36,8 @@ stages:
   jobs:
       - deployment: DEVDeployment
         displayName: 'DEV Deployment Job'
+        pool:
+          name: 'Ops-pipeline'
         environment: 'DEV'
         strategy:
           runOnce:
@@ -56,6 +58,8 @@ stages:
       - deployment: PREPRODDeployment
         displayName: 'PREPROD Deployment Job'
         environment: 'PREPROD'
+        pool:
+          name: 'Ops-pipeline'
         strategy:
           runOnce:
             deploy:
@@ -70,6 +74,8 @@ stages:
   jobs:
       - deployment: PRODDeployment
         displayName: 'PROD Deployment Job'
+        pool:
+          name: 'Ops-pipeline'
         environment: 'PROD'
         strategy:
           runOnce:
