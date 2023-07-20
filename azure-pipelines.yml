@@ -21,11 +21,11 @@ stages:
              inputs:
               script: 'sleep 10'
       - job: EchoVariables
-        displayName: 'Echo Variables'
         pool:
           vmImage: 'ubuntu-latest'
           steps:
           - task: CmdLine@2
+            displayName: 'Echo Variables'
             script:
               echo "DBusername: $(DBusername)"
               echo "password: $(password)"
