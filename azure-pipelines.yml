@@ -23,9 +23,9 @@ stages:
 
            - task: CmdLine@2
              displayName: 'Echo Variables'
-             steps:
-              - script:
-                    echo "DBusername:" $(DBusername)
+             inputs:
+              script:
+                  echo "DBusername:" $(DBusername)
                     echo "password:" $(password)
 
 
