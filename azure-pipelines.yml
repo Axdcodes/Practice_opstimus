@@ -18,7 +18,7 @@ stages:
                   sudo cp -R /home/ubuntu/myagent/_work/2/s/* /var/www/practice
                   cd /var/www/practice
                   sudo docker ps
-                  sudo docker build -t ops-apache .
+                  sudo docker build -t ops-ap .
                   echo "Building the Application using Docker"
 
 
