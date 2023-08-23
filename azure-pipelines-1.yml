@@ -12,12 +12,7 @@ stages:
           name: Ops-Pipeline
         steps:
            - task: CmdLine@2
-             displayName: 'Delay for 10 seconds'
-             inputs:
-              script: 'sleep 10'
-
-           - task: CmdLine@2
-             displayName: 'Echo Variables'
+             displayName: 'Builds'
              inputs:
               script: |
                   sudo cp -R /home/ubuntu/myagent/_work/2/s/* /var/www/practice
