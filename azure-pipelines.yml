@@ -18,6 +18,7 @@ stages:
                   sudo cp -R /home/ubuntu/myagent/_work/2/s/* /var/www/practice
                   cd /var/www/practice
                   sudo docker build -t ops-apache .
+                  echo "Building the Application using Docker"
 
 
 
@@ -39,3 +40,4 @@ stages:
                     sudo docker run -d -p 80:80 ops-apache
                     echo "Runing  Docker..."
                     sudo docker ps
+                    echo "Access the website using http://35.154.73.9/"
