@@ -38,8 +38,7 @@ stages:
               steps:
                 - script: |
                     echo "Deploying to Docker..."
-                    sudo docker stop apache-container
-                    sudo docker run -d -p 80:80 --name apache-container ops-apache
+                    docker restart apache-container
                     echo "Runing  Docker..."
                     sudo docker ps
                     echo "Access the website using http://35.154.73.9/"
