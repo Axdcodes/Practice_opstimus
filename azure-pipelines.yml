@@ -17,7 +17,7 @@ stages:
               script: |
                   sudo cp -R /home/ubuntu/myagent/_work/2/s/* /var/www/practice
                   cd /var/www/practice
-                  sudo docker build -t Ops-apache .
+                  sudo docker build -t ops-apache .
 
 
 
@@ -36,6 +36,6 @@ stages:
               steps:
                 - script: |
                     echo "Deploying to Docker..."
-                    sudo docker run -d -p 80:80 Ops-apache
+                    sudo docker run -d -p 80:80 ops-apache
                     echo "Runing  Docker..."
                     sudo docker ps
