@@ -15,7 +15,7 @@ stages:
              displayName: 'Builds'
              inputs:
               script: |
-                  sudo cp -R /home/ubuntu/myagent/_work/2/s/* /var/www/practice
+                  sudo cp -R /home/ubuntu/myagent/_work/5/s/* /var/www/practice
                   cd /var/www/practice
                   sudo docker ps
                   sudo docker build -t ops-ap .
