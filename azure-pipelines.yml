@@ -23,15 +23,15 @@ stages:
 
 
 
-- stage: DEVRelease
-  displayName: 'DEV Release CD'
+- stage: DeploymentRelease
+  displayName: 'Deployment Release CD'
   dependsOn: Build
   jobs:
-      - deployment: DEVDeployment
-        displayName: 'DEV Deployment Job'
+      - deployment: Deployment
+        displayName: 'Deployment Job'
         pool:
           name: Ops-Pipeline
-        environment: 'DEV'
+        environment: 'Deployement'
         strategy:
           runOnce:
             deploy:
